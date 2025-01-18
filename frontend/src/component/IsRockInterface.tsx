@@ -64,7 +64,8 @@ const IsRockInterface: React.FC = () => {
             console.log(blob);
 
             try {
-                const response = await axios.post("http://127.0.0.1:5000/upload", formData, {
+                const apiUrl = process.env.REACT_APP_API_URL;
+                const response = await axios.post(`${apiUrl}/upload`, formData, {
                     headers: {
                         // Don't set Content-Type, let Axios do it automatically
                         Accept: "application/json", // Optional: to ensure the server knows to send JSON back
